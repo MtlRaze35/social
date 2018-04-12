@@ -18,7 +18,9 @@ class Login extends Component {
 
 handleClick = () => {
   //get request and push to user trying to log in
-  console.log('user',this.state.username)
+  fetch('https://my-json-server.typicode.com/MtlRaze35/social/posts/1/comments')
+  .then(response => response.json())
+  .then(json => console.log(json))
 }
 
   render() {
