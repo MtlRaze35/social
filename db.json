@@ -15,5 +15,105 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "people": [  {
+    "id": 0,
+    "name": "Grover Torp",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/pehamondello/128.jpg"
+},
+{
+    "id": 1,
+    "name": "Katlyn Schaefer Sr.",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/fotomagin/128.jpg"
+},
+{
+    "id": 2,
+    "name": "Ruthie Schmidt",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/derekebradley/128.jpg"
+},
+{
+    "id": 3,
+    "name": "Jordi Pouros",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/albertaugustin/128.jpg"
+},
+{
+    "id": 4,
+    "name": "Kaylee Hermann V",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jagan123/128.jpg"
+},
+{
+    "id": 5,
+    "name": "Adelia Bergnaum",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hsinyo23/128.jpg"
+},
+{
+    "id": 6,
+    "name": "Gino Hartmann",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/arthurholcombe1/128.jpg"
+},
+{
+    "id": 7,
+    "name": "Diego Torphy",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/buleswapnil/128.jpg"
+},
+{
+    "id": 8,
+    "name": "Justice Labadie",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/chandlervdw/128.jpg"
+},
+{
+    "id": 9,
+    "name": "Mr. Adeline Pacocha",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/vickyshits/128.jpg"
+},
+{
+    "id": 10,
+    "name": "Jamison Collins",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/gauravjassal/128.jpg"
+},
+{
+    "id": 11,
+    "name": "Gloria Spencer",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/j04ntoh/128.jpg"
+},
+{
+    "id": 12,
+    "name": "Dortha Baumbach",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nomidesigns/128.jpg"
+},
+{
+    "id": 13,
+    "name": "Elroy Rosenbaum Jr.",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/gu5taf/128.jpg"
+},
+{
+    "id": 14,
+    "name": "Mckenzie Parisian",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/safrankov/128.jpg"
+},
+{
+    "id": 15,
+    "name": "Nicolas Greenholt",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/travishines/128.jpg"
+},
+{
+    "id": 16,
+    "name": "Corbin Mosciski PhD",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/nicoleglynn/128.jpg"
+},
+{
+    "id": 17,
+    "name": "Alice Abshire",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/ssiskind/128.jpg"
+},
+{
+    "id": 18,
+    "name": "Oceane Dooley",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/ilya_pestov/128.jpg"
+},
+{
+    "id": 19,
+    "name": "Nicolette Herman I",
+    "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/dudestein/128.jpg"
+}] 
 }
