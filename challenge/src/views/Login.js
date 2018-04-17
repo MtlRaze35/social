@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 // import API_URL from "../../API";
 import styled from "styled-components";
 
-import Profile from '../../components/Profile'
+import Profile from './Profile'
 
 const LoginContainer = styled.div`
   width: 60%;
@@ -20,14 +20,6 @@ class Login extends Component {
   };
 
   handleClick = () => {
-    //get request and push to user trying to log in
-    // fetch(
-    //   `${API_URL}posts/1/comments`
-    // )
-    //   .then(response => response.json())
-    //   .then(json => console.log(json));
-    // this.props.history.push('/profile')
-
     this.setState({ loggedIn: !this.state.loggedIn });
   };
 

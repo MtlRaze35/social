@@ -5,7 +5,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Switch } from 'react-router-dom';
 
-import Login from './views/login'
 //import {withRouter} from "react-router-dom"; 
 //above code to add to routes and use this.props.history.push()
 

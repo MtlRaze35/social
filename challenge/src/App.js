@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {withRouter} from "react-router-dom"; 
 
-import Login from './views/login' 
+import Login from './views/Login' 
 
 class App extends Component {
   render() {
