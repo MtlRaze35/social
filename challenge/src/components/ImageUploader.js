@@ -23,21 +23,23 @@ class ImageUploader extends Component {
 
   fileUploadHandler = () => {
 
-    fetch(`http://localhost:3000/people/${this.props.user.id}`, {
-      method: "PUT",
+    // ${this.props.user.id}
+    fetch(`http://localhost:3000/albums/`, {
+      method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-type": "application/json; charset=UTF-8"
       },
       body: JSON.stringify({
-        name: this.state.user.name,
-        avatar: this.state.selectedFile
+        name: this.props.user.name,
+        userID: this.props.user.id,
+        photo: this.state.selectedFile
       })
     }).catch(e => console.log(e, 'malaka'))
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     return (
       <div>
         <input type="file" ref="input" onChange={e => this.fileSelectedHandler(e)} />

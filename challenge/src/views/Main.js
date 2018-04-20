@@ -26,7 +26,7 @@ class Main extends Component {
     this.props.history.push({
       pathname: '/profile',
       state: {
-        username: this.props.location.state.username
+        user: this.state.user
       }
     })
   }

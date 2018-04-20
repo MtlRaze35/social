@@ -15,7 +15,7 @@ const LoginContainer = styled.div`
 
 class Login extends Component {
   state = {
-    username: "",
+    user: "",
     loggedIn: false
   };
 
@@ -24,13 +24,13 @@ class Login extends Component {
     this.props.history.push({
       pathname: '/profile',
       state: {
-        username: this.state.username
+        user: this.state.user
       }
     })
   };
 
   logout=()=>{
-    this.setState({loggedIn: false, username: ''})
+    this.setState({loggedIn: false, user: ''})
   }
 
   render() {
@@ -39,7 +39,7 @@ class Login extends Component {
       <LoginContainer>
         <input
           placeholder="Full Name"
-          onChange={e => this.setState({ username: e.target.value })}
+          onChange={e => this.setState({ user: e.target.value })}
         />
         <button onClick={this.handleClick}> Submit </button>
       </LoginContainer>

@@ -1,19 +1,200 @@
 {
+  "people": [
+    {
+      "id": 0,
+      "name": "Nyah Schuster",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/judzhin_miles/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 1,
+      "name": "Matt Buckridge",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/colgruv/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 2,
+      "name": "Pascale Jast",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/tumski/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 3,
+      "name": "Carson Ryan",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/josecarlospsh/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 4,
+      "name": "Buddy Lesch II",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/samuelkraft/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 5,
+      "name": "Oleta Leannon",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/xripunov/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 6,
+      "name": "Mr. Brooke Terry",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/carlosm/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 7,
+      "name": "Rodrigo Mraz V",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/codysanfilippo/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 8,
+      "name": "Justyn Schulist",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/weglov/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 9,
+      "name": "Darian Swaniawski",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/uxward/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 10,
+      "name": "Dena Eichmann",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/falvarad/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 11,
+      "name": "Claudie Christiansen",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/antonyryndya/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 12,
+      "name": "Eusebio Huel",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/m4rio/128.jpg",
+      "albums": [],
+      "posts": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Milan Jacobi",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/vocino/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 14,
+      "name": "Manuel Quigley",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/tgerken/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 15,
+      "name": "Mrs. Jody Langworth",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/salvafc/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 16,
+      "name": "Jean Gleason",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/9lessons/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 17,
+      "name": "Vada Parisian",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/karlkanall/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 18,
+      "name": "Reilly Ernser",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/derienzo777/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "id": 19,
+      "name": "Chase Huels",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/danvernon/128.jpg",
+      "albums": [],
+      "posts": []
+    },
+    {
+      "name": "dre",
+      "avatar": null,
+      "posts": [
+        3
+      ],
+      "albums": [],
+      "id": 20
+    }
+  ],
+  "albums": [],
+  
   "posts": [
     {
+      "content": "Here it is",
+      "title": "New Post",
+      "user": 12,
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "comments": [
+        {
+          "author": "Eusebio Huel",
+          "body": "blah",
+          "authorID": 12,
+          "postID": 1
+        },
+        {
+          "author": "Eusebio Huel",
+          "body": "olandlnsadlnsdlnasdln",
+          "authorID": 12,
+          "postID": 1
+        }
+      ]
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "content": "World",
+      "title": "Hello ",
+      "user": 12,
+      "id": 2,
+      "comments": [
+        {
+          "author": "Eusebio Huel",
+          "body": "blah",
+          "authorID": 12,
+          "postID": 2
+        }
+      ]
+    },
+    {
+      "content": "making things happen!",
+      "title": "Hello World",
+      "user": 20,
+      "id": 3
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

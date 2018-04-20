@@ -27,29 +27,48 @@ class Profile extends Component {
         posts: []
       },
       main: false,
-      loading: true,
-      reRender: false
+      loading: true
     };
   }
 
-   componentWillMount() {
+  //  componentWillMount() {
+  //   fetch(`http://localhost:3000/people`)
+  //   .then(response => response.json())
+  //   .then(peoples => {
+  //     const user = peoples.find(elem => {
+  //       const { username } = this.props.location.state;
+
+  //       return elem.name === username;
+  //     });
+
+  //     if (!user) {
+  //       this.setState({ notFound: true });
+  //     } else {
+  //        this.setState({
+  //         user
+  //       });
+  //     }
+  //   });
+  // }
+
+  componentWillMount() {
     fetch(`http://localhost:3000/people`)
-    .then(response => response.json())
-    .then(peoples => {
-      const user = peoples.find(elem => {
-        const { username } = this.props.location.state;
-
-        return elem.name === username;
-      });
-
-      if (!user) {
-        this.setState({ notFound: true });
-      } else {
-         this.setState({
-          user
+      .then(response => response.json())
+      .then(peoples => {
+        const userInfo = peoples.find(elem => {
+          let name;
+          typeof (this.props.location.state.user) === 'string' ? name = this.props.location.state.user :
+            name = this.props.location.state.user.name;
+          return elem.name === name
         });
-      }
-    });
+        if (!userInfo) {
+          this.setState({ notFound: true });
+        } else {
+          this.setState({
+            user: userInfo
+          });
+        }
+      });
   }
 
   // fetchUser = (update) => {
@@ -152,7 +171,7 @@ class Profile extends Component {
         <ContentContainer>
           {/* TODO: albums component that renders if albums.length other renders message */}
           <div>
-            <button onClick={() => this.toggle("albums")}>ALBUMMS</button>
+            <button onClick={() => this.toggle("albums")}>ALBUMS</button>
             <button onClick={() => this.toggle("posts")}>POSTS</button>
           </div>
           {tab === "albums" 

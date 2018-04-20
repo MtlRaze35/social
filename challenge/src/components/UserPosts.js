@@ -89,35 +89,18 @@ class UserPosts extends Component {
   // }
 
     renderPosts  = () => {
-    console.log('RERE', this.state.reRender)
     this.fetchPost()
-    return this.state.posts.map((post) => {
+    return this.state.posts.map((post, idx) => {
       const { title, content, id } = post;
-        // <AllPostsContainer>
-        //   {this.state.allPosts
-        //     ? this.state.allPosts.map(elem => {
-        //         return (
-        //           <PostContainer key={elem.id}>
-        //             Title: {elem.title}, {elem.content}
-        //             <button onClick={() => this.deletePost(elem.id)}>
-        //               Delete post
-        //             </button>
-        //           </PostContainer>
-        //         );
-        //       })
-        //     : null}
-        // </AllPostsContainer> 
+        
       return (
-        //TODO: Unique Key ?***
-        <PostContainer key={post.id}>
+        <PostContainer key={idx}>
           <h3>{title}</h3>
           <p>{content}</p>
           <button>Show Comments</button>
         </PostContainer>
       )
     });
-    // this.forceUpdate()
-    // this.setState({ reRender: this.state.reRender++ })
   }
 
 

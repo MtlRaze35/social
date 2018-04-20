@@ -14,7 +14,8 @@ class UserAlbums extends Component {
   render() {
     return (
       <div>
-        <NewAlbum/>
+        <button onClick={this.viewPhoto}></button>
+        <NewAlbum user={this.props.user}/>
       </div>
     )
   }
