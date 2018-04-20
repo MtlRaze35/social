@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-// import styled from 'styled-components'
+import styled from 'styled-components';
+
+import NewAlbum from './NewAlbum';
 
 // const AlbumsContainer = styled.div`
 // width: 60%;
@@ -12,7 +14,7 @@ class UserAlbums extends Component {
   render() {
     return (
       <div>
-        all user albums
+        <NewAlbum/>
       </div>
     )
   }

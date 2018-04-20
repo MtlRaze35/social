@@ -21,6 +21,12 @@ class Login extends Component {
 
   handleClick = () => {
     this.setState({ loggedIn: !this.state.loggedIn });
+    this.props.history.push({
+      pathname: '/profile',
+      state: {
+        username: this.state.username
+      }
+    })
   };
 
   logout=()=>{
@@ -28,7 +34,8 @@ class Login extends Component {
   }
 
   render() {
-    const Boxes = (
+    // const Boxes = (
+    return(
       <LoginContainer>
         <input
           placeholder="Full Name"
@@ -38,11 +45,11 @@ class Login extends Component {
       </LoginContainer>
     );
     
-    if (!this.state.loggedIn) {
-      return Boxes;
-    } else {
-      return <Profile username={this.state.username} logout={this.logout}/>;
-    }
+    // if (!this.state.loggedIn) {
+    //   return Boxes;
+    // } else {
+    //   return <Profile username={this.state.username} logout={this.logout}/>;
+    // }
   }
 }
 

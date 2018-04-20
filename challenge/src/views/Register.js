@@ -1,37 +1,48 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class Register extends Component {
   state = {
-    newUser: ''
-  }
+    name: ""
+  };
 
-  signUp = () =>{
-    console.log(this.state)
-    fetch('http://localhost:3000/people',{
-      method:'POST',
+  signUp = () => {
+    const user = {
+      name: this.state.name,
+      avatar: null,
+      posts: [],
+      albums: []
+    };
+
+    fetch("http://localhost:3000/people", {
+      method: "POST",
       headers: {
-        'Accept': 'application/json, text/plain, */*',
+        Accept: "application/json, text/plain, */*",
         "Content-type": "application/json; charset=UTF-8"
       },
-      body: JSON.stringify({ name: this.state.newUser, avatar: null })
+      body: JSON.stringify(user)
     })
-    .then(response => response.json())
-    .then(all => alert("Registered successfully"))
-    .then(ans => window.location.reload())
-  }
-  
-  
-  
+      .then(response => {
+        alert("Registered successfully");
+        this.props.history.push("/");
+      })
+      .catch(e => {
+        console.error("signup", e);
+      });
+  };
+
   render() {
-  
     return (
       <div>
         This will be your login info!
-        <input placeholder="Full Name" onChange={(e) => this.setState({newUser: e.target.value})} />
+        <input
+          placeholder="Full Name"
+          onChange={e => this.setState({ name: e.target.value })}
+        />
         <button onClick={this.signUp}>Sign Up!</button>
       </div>
     );
   }
 }
 
-export default Register;
+export default withRouter(Register);

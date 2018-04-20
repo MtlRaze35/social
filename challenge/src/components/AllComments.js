@@ -1,12 +1,62 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import styled from "styled-components";
+
+import OtherProfile from "./OtherProfile";
+
+const CommentContainer = styled.div``;
+
+const Author = styled.div`
+  cursor: pointer;
+`;
 
 class AllComments extends Component {
-  render(){
-    console.log(this.props.toShow)
-    return(
-      <div>{this.props.toShow[0].body}</div>
-    )
+  state = {
+    viewingOther: null,
+    otherProfile: ""
+  };
+
+  viewProfile = user => {
+    console.log('Clicked')
+    this.setState({ otherProfile: user });
+    this.setState({ viewingOther: true });
+    console.log(this.state)
+    console.log(this.props.location)
+    // this.props.history.push('/otherUser')
+
+    this.props.history.push({
+      pathname: '/otherUser',
+      state: {
+        otherUser: user,
+        currentUser: this.props.location.state.username
+      }
+    })
+  };
+
+  render() {
+    // this.state.viewingOther ? (
+    //   <OtherProfile user={this.state.otherProfile} />
+    // ) : null;
+
+    if (this.state.viewingOther){
+      return(<OtherProfile user={this.state.otherProfile}/>)
+    }
+
+    return (
+      <div>
+        {this.props.toShow.map(elem => {
+          return (
+            <CommentContainer key={elem.id}>
+              <div>{elem.body}</div>
+              <Author onClick={() => this.viewProfile(elem.author)}>
+                {elem.author}
+              </Author>
+            </CommentContainer>
+          );
+        })}
+      </div>
+    );
   }
 }
 
-export default AllComments
+export default withRouter(AllComments);
