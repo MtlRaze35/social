@@ -34,23 +34,7 @@ class UserPosts extends Component {
     this.setState({posts: this.props.postIds})
   }
 
-  // localhost:3000/posts?author=dre
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (nextProps.postIds.length !== nextState.posts.length) {
-  //     this.fetchPost();
-  //     return true;
-  //   }
-  //   return false;
-  // }
-
-
-
-  // componentWillReceiveProps(nextProps) {
-  //   fetch(`http://localhost:3000/posts?author=${nextProps.user.name}`)
-  //     .then(response => response.json())
-  //     .then(all => this.setState({ allPosts: all }));
-  // }
-
+  // TODO: 
   // deletePost = postId => {
   //   console.log(postId);
   //   fetch(`http://localhost:3000/posts/${postId}`, {

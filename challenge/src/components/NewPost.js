@@ -32,7 +32,8 @@ class NewPost extends Component {
       },
       body: JSON.stringify(post)
     }).then(() => {
-      fetch("http://localhost:3000/posts").then(response => response.json())
+      fetch("http://localhost:3000/posts")
+      .then(response => response.json())
       .then(posts => {
 
           const postsId = posts.filter((remotePost) => remotePost.user === user.id)

@@ -104,7 +104,7 @@ export default class History extends Component {
           </button>
           
           {this.state.comments !== [] ? this.state.firstComment.postID === post.id ?
-            <AllComments postID={post.id} toShow={this.state.comments} />
+            <AllComments postID={post.id} toShow={this.state.comments} user={this.props.user} />
            : null : null}
 
           <input onChange={e => (currentMessage = e.target.value)} />
