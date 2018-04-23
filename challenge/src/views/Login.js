@@ -1,24 +1,17 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-// import API_URL from "../../API";
-import styled from "styled-components";
+import { Button, LoginContainer, Input } from '../styles'
 
-import Profile from './Profile'
-
-const LoginContainer = styled.div`
-  width: 60%;
-  height: 3rem;
-  border: 2px solid black;
-  box-shadow 2px 2px whitesmoke;
-  align-content: center;
-`;
+const buttonStyle = {
+  marginLeft: '95px'
+}
 
 class Login extends Component {
   state = {
     user: "",
     loggedIn: false
   };
-
+  
   handleClick = () => {
     this.setState({ loggedIn: !this.state.loggedIn });
     this.props.history.push({
@@ -28,28 +21,21 @@ class Login extends Component {
       }
     })
   };
-
+  
   logout=()=>{
     this.setState({loggedIn: false, user: ''})
   }
 
   render() {
-    // const Boxes = (
     return(
       <LoginContainer>
-        <input
+        <Input
           placeholder="Full Name"
           onChange={e => this.setState({ user: e.target.value })}
         />
-        <button onClick={this.handleClick}> Submit </button>
+        <Button onClick={this.handleClick}  style={buttonStyle}> Submit </Button>
       </LoginContainer>
     );
-    
-    // if (!this.state.loggedIn) {
-    //   return Boxes;
-    // } else {
-    //   return <Profile username={this.state.username} logout={this.logout}/>;
-    // }
   }
 }
 

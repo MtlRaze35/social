@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import API_URL from "../API";
 
 const NewPostContainer = styled.div``;
 
@@ -9,22 +10,22 @@ class NewPost extends Component {
     content: null
   };
 
-  
   submitPost = () => {
     const { content, title } = this.state;
-    const { user, newPost } = this.props;
+    const { user } = this.props;
 
-    if (!content || !title ) {
+    if (!content || !title) {
       return;
-    };
+    }
 
     const post = {
       content,
       title,
-      user: user.id
+      user: user.id,
+      author: user.name
     };
 
-    fetch(`http://localhost:3000/posts`, {
+    fetch(`${API_URL}/posts`, {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -32,15 +33,14 @@ class NewPost extends Component {
       },
       body: JSON.stringify(post)
     }).then(() => {
-      fetch("http://localhost:3000/posts")
-      .then(response => response.json())
-      .then(posts => {
+      fetch(`${API_URL}/posts`)
+        .then(response => response.json())
+        .then(posts => {
+          const postsId = posts
+            .filter(remotePost => remotePost.user === user.id)
+            .map(x => x.id);
 
-          const postsId = posts.filter((remotePost) => remotePost.user === user.id)
-            .map((x) => x.id);
-
-
-          fetch(`http://localhost:3000/people/${user.id}`, {
+          fetch(`${API_URL}/people/${user.id}`, {
             method: "PUT",
             headers: {
               Accept: "application/json, text/plain, */*",
@@ -54,17 +54,14 @@ class NewPost extends Component {
         });
     });
 
-    // this.newPost();
     this.setState({
-      title: '',
-      content: ''
+      title: "",
+      content: ""
     });
-    this.props.fetchPost()
-    // this.forceUpdate()
+    this.props.fetchPost();
   };
 
   render() {
-    // console.log(this.props)
     return (
       <NewPostContainer>
         <input

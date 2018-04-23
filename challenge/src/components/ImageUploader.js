@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API_URL from "../API";
 
 class ImageUploader extends Component {
   state = {
@@ -31,7 +32,7 @@ class ImageUploader extends Component {
     };
 
     // ${this.props.user.id}
-    fetch(`http://localhost:3000/albums/`, {
+    fetch(`${API_URL}/albums/`, {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -45,13 +46,13 @@ class ImageUploader extends Component {
       })
     })
       .then(() => {
-        fetch("http://localhost:3000/albums")
+        fetch(`${API_URL}/albums`)
           .then(response => response.json())
           .then(albums => {
             const albumId = albums.filter((remoteAlbum) => remoteAlbum.name === name)
               .map((x) => x.id);
 
-            fetch(`http://localhost:3000/people/${this.props.user.id}`, {
+            fetch(`${API_URL}/${this.props.user.id}`, {
               method: "PUT",
               headers: {
                 Accept: "application/json, text/plain, */*",
@@ -68,7 +69,6 @@ class ImageUploader extends Component {
 
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <input

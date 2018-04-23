@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
+import { Button } from '../styles'
 import History from "../components/History";
+import  API_URL  from "../API";
 
 class Main extends Component {
   constructor(props) {
@@ -13,16 +14,12 @@ class Main extends Component {
   componentWillMount() {
     this.setState({user: this.props.location.state.user})
   
-    fetch("http://localhost:3000/posts")
+    fetch(`${API_URL}/posts`)
       .then(request => request.json())
-      // .then(all => console.log(this.props.location.state))
-      .then(posts => this.setState({ posts }));
+      .then(posts => this.setState({ posts: posts.reverse() }));
   }
 
   handleClick = () => {
-    console.log(this.state)
-    // this.props.history.push('/profile')
-
     this.props.history.push({
       pathname: '/profile',
       state: {
@@ -32,21 +29,17 @@ class Main extends Component {
   }
 
   logout=()=>{
+    this.setState({user: ''})
     this.props.history.push('/')
   }
 
-  test = () => {
-    console.log(this.state)
-  }
 
   render() {
     return (
       <div>
         <div>
-          <button onClick={this.test}>test</button>
-          <button onClick={this.logout}>Logout</button>
-          <button onClick={this.handleClick }> To Profile </button>
-          {/* <Profile/> */}
+          <Button onClick={this.logout}>Logout</Button>
+          <Button onClick={this.handleClick }> To Profile </Button>
         </div>
         <div>
           <History posts={this.state.posts} user={this.state.user} />

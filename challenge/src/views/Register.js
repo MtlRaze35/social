@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { Button, RegisterDiv } from '../styles'
+import API_URL from "../API";
 
 class Register extends Component {
   state = {
@@ -14,7 +16,7 @@ class Register extends Component {
       albums: []
     };
 
-    fetch("http://localhost:3000/people", {
+    fetch(`${API_URL}/people`, {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -33,14 +35,14 @@ class Register extends Component {
 
   render() {
     return (
-      <div>
+      <RegisterDiv>
         This will be your login info!
         <input
           placeholder="Full Name"
           onChange={e => this.setState({ name: e.target.value })}
         />
-        <button onClick={this.signUp}>Sign Up!</button>
-      </div>
+        <Button onClick={this.signUp}>Sign Up!</Button>
+      </RegisterDiv>
     );
   }
 }

@@ -1,128 +1,67 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import { withRouter } from "react-router-dom";
 import AllComments from "../components/AllComments";
-
-const PostBox = styled.div`
- width: auto;
- height: auto;
- border: 2px solid black;
- box-shadow 2px 2px whitesmoke;
- align-content: center;
-`;
+import { Button, PostContainer, PostBox } from '../styles'
+import API_URL from "../API";
 
 
-export default class History extends Component {
+class History extends Component {
   constructor(props) {
     super(props);
     this.state = {
       comments: [],
-      firstComment: {postID: null},
-      id: ""
+      firstComment: { postID: null },
+      id: "",
+      postID: null
     };
   }
-  // shouldComponentUpdate(nextProps, nextState) {
-    //     if (nextProps) return true
-    //     return false
-    // }
-    leaveComment(id, body, author, authorID) {
-      //replace localhost url by `https://my-json-server.typicode.com/MtlRaze35/social/comments/${obj.postId}`
-      if (!body) {
-      return;
-    }
-    
-    // let postToUpdate;
-    
-    fetch(`http://localhost:3000/posts/${id}`)
-      .then(response => response.json())
-      .then(post => {
-        if (!post.comments) {
-          post.comments = [];
-        }
-        post.comments.push({ author, body, authorID, postID: id});
-        const comments = post.comments;
-
-        fetch(`http://localhost:3000/posts/${id}`, {
-          method: "PATCH",
-          headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-type": "application/json; charset=UTF-8"
-          },
-          body: JSON.stringify({
-            comments
-          })
-        });
-      });
-      // console.log(postToUpdate)
-    }
 
   showComments = id => {
-    console.log(id);
-    // hides or reveals div
-    let toShow = [];
-    fetch(`http://localhost:3000/posts/${id}`)
-    .then(resp => resp.json())
-    .then(post => {
-      if (!post.comments){
-        return
-      }
-      this.setState({ 
-        comments: post.comments, 
-        firstComment: post.comments[0]
+    fetch(`${API_URL}/posts/${id}`)
+      .then(resp => resp.json())
+      .then(post => {
+        this.setState({
+          comments: post.comments,
+          postID: id
+        });
       });
-      // this.renderComments(post.comments)
-    });
+  };
 
-    // if (this.state.comments !== []){
-    // return ( <AllComments postID={id} toShow={this.state.comments} /> )
-    // }
-    
-  };
-  
-  renderComments = comments => {
-    // console.log(this.state)
-    // const { body, author} = this.state.comments
-  };
-  
+  hideComments() {
+    this.setState({ comments: [], postID: null })
+  }
+
+  goToOtherUser(viewUser) {
+    this.props.history.push({
+      pathname: "/otherUser",
+      state: {
+        viewUser,
+        currentUser: this.props.user
+      }
+    })
+  }
+
   render() {
-   
-
-    let currentMessage;
     if (!this.props.posts) return <div>Loading Messages</div>;
-
 
     return this.props.posts.map(post => {
 
       return (
         <PostBox key={post.id}>
-          <p>
-            {post.title}, {post.content}
-          </p>
-          
-          
-          <button onClick={() => this.showComments(post.id)}>
-            Show Comments
-          </button>
-          
-          {this.state.comments !== [] ? this.state.firstComment.postID === post.id ?
-            <AllComments postID={post.id} toShow={this.state.comments} user={this.props.user} />
-           : null : null}
-
-          <input onChange={e => (currentMessage = e.target.value)} />
-          <button
-            onClick={() =>
-              this.leaveComment(
-                post.id,
-                currentMessage,
-                this.props.user.name,
-                this.props.user.id
-              )
-            }
-          >
-            Add Comment
-          </button>
-          <button onClick={() => console.log(this.state)}> test </button>
+          <PostContainer>
+            <h2>{post.title}</h2> {post.content}
+            <p className="user-link" onClick={() => this.goToOtherUser(post.author)}>{post.author}</p>
+          </PostContainer>
+          <div>
+          <Button onClick={() => this.showComments(post.id)}>Show Comments</Button>
+          <Button onClick={() => this.hideComments()}> Hide Comments</Button>
+          </div>
+          {this.state.postID === post.id ?  <AllComments postID={post.id} toShow={this.state.comments} user={this.props.user} /> 
+          : null}
         </PostBox>
       );
     });
   }
 }
+
+export default withRouter(History)

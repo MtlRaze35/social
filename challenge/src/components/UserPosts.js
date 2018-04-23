@@ -1,23 +1,7 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import NewPost from "./NewPost";
-
-// TODO: common variables in API.js and import when needed
-const URL = 'http://localhost:3000';
-const headers = {
-  Accept: "application/json, text/plain, */*",
-  "Content-type": "application/json; charset=UTF-8"
-};
-
-
-const AllPostsContainer = styled.div``;
-
-const PostContainer = styled.div`
-width: 60%;
-border: 2px solid black;
-box-shadow 2px 2px whitesmoke;
-align-content: center;
-`;
+import { PostContainer, Button } from "../styles";
+import API_URL from "../API";
 
 class UserPosts extends Component {
   constructor(props) {
@@ -29,75 +13,52 @@ class UserPosts extends Component {
       reRender: 0
     };
   }
-  
-   componentWillMount()  {
-    this.setState({posts: this.props.postIds})
-  }
 
-  // TODO: 
-  // deletePost = postId => {
-  //   console.log(postId);
-  //   fetch(`http://localhost:3000/posts/${postId}`, {
-  //     method: "DELETE",
-      
-  //   })
-  //     .then(response => response.json())
-  //     .then(all => window.location.reload());
-  // };
+  componentWillMount() {
+    this.setState({ posts: this.props.postIds });
+  }
 
   fetchPost = () => {
-    const { id } = this.state.posts
-    const { postIds } = this.props.postIds
-    
     const allPosts = [];
-    const ids = this.props.postIds
-    
-    
+    const ids = this.props.postIds;
+
     if (this.state.posts.length && this.state.completed === false) {
-
-      ids.forEach((postID) => {
-        fetch(`${URL}/posts/${postID}`)
-          .then((response) => response.json())
+      ids.forEach(postID => {
+        fetch(`${API_URL}/posts/${postID}`)
+          .then(response => response.json())
           .then(post => {
-              allPosts.push(post)
-              if (allPosts.length === ids.length){
-                this.setState({ posts: allPosts, completed: true })
-              }
-            })
-          }); 
-        }
-  }
-  // newPost = () => {
-    // console.log('NEW ONE!')
-    // this.setState({reRender: !this.state.reRender})
-  // }
+            allPosts.push(post);
+            if (allPosts.length === ids.length) {
+              this.setState({ posts: allPosts, completed: true });
+            }
+          });
+      });
+    }
+  };
 
-    renderPosts  = () => {
-    this.fetchPost()
+  renderPosts = () => {
+    this.fetchPost();
     return this.state.posts.map((post, idx) => {
-      const { title, content, id } = post;
-        
+      const { title, content } = post;
+
       return (
         <PostContainer key={idx}>
           <h3>{title}</h3>
           <p>{content}</p>
-          <button>Show Comments</button>
+          <Button>Show Comments</Button>
         </PostContainer>
-      )
+      );
     });
-  }
-
+  };
 
   render() {
-    const { postIds, user, fetchPost } = this.props;
+    const { user } = this.props;
     const { posts } = this.state;
 
     return (
       <div>
         <NewPost user={user} fetchPost={this.fetchPost} />
-        {
-          posts.length ? this.renderPosts() : <span>NO POSTS</span> 
-        }
+        {posts.length ? this.renderPosts() : <span>NO POSTS</span>}
       </div>
     );
   }

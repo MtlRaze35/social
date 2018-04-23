@@ -1,3 +1,3 @@
-const API_URL = "https://my-json-server.typicode.com/MtlRaze35/social/";
+const API_URL = "http://localhost:3000"
 
-export default API_URL;
+export default API_URL
